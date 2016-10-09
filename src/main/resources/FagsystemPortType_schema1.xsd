@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://fagsystem.gaustatoppen.no/" xmlns:tns="http://fagsystem.gaustatoppen.no/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="oppdaterAvtaleStatus" type="tns:oppdaterAvtaleStatus"/>
+
+  <xs:element name="oppdaterAvtaleStatusResponse" type="tns:oppdaterAvtaleStatusResponse"/>
+
+  <xs:element name="opprettAvtale" type="tns:opprettAvtale"/>
+
+  <xs:element name="opprettAvtaleResponse" type="tns:opprettAvtaleResponse"/>
+
+  <xs:element name="opprettKunde" type="tns:opprettKunde"/>
+
+  <xs:element name="opprettKundeResponse" type="tns:opprettKundeResponse"/>
+
+  <xs:complexType name="opprettKunde">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="opprettKundeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="oppdaterAvtaleStatus">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="tns:avtaleStatus" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="oppdaterAvtaleStatusResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="opprettAvtale">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="opprettAvtaleResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="avtaleStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IKKESENDT"/>
+      <xs:enumeration value="SENDT"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+
