@@ -13,7 +13,7 @@ import javax.xml.ws.Endpoint;
 @WebService()
 public class Fagsystem {
 
-    private final Logger logger = LoggerFactory.getLogger(Fagsystem.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Fagsystem.class);
 
     private final AvtalenummerFactory avtalenummerFactory = AvtalenummerFactory.getInstance();
     private final KundenummerFactory kundenummerFactory = KundenummerFactory.getInstance();
@@ -21,20 +21,20 @@ public class Fagsystem {
     @WebMethod
     public String opprettKunde(String navn, String adresse) {
         String kundeNummer = String.valueOf(kundenummerFactory.nyttKundenr());
-        logger.info("Oppretter kunde for " + navn + ", " + adresse + " --- tildeles kundenummer " + kundeNummer);
+        LOG.info("Oppretter kunde for " + navn + ", " + adresse + " --- tildeles kundenummer " + kundeNummer);
         return kundeNummer;
     }
 
     @WebMethod
     public String opprettAvtale(String kundeNummer, String avtaleType) {
         String avtaleNummer = String.valueOf(avtalenummerFactory.nyttAvtalenr());
-        logger.info("Oppretter " + avtaleType + "-avtale for kundenr " + kundeNummer + ", --- tildeles avtalenummer " + avtaleNummer);
+        LOG.info("Oppretter " + avtaleType + "-avtale for kundenr " + kundeNummer + ", --- tildeles avtalenummer " + avtaleNummer);
         return avtaleNummer;
     }
 
     @WebMethod
     public String oppdaterAvtaleStatus(String avtaleNummer, AvtaleStatus avtaleStatus) {
-        logger.info("Oppdaterer status for avtale " + avtaleNummer + " til '" + avtaleStatus.name() + "'");
+        LOG.info("Oppdaterer status for avtale " + avtaleNummer + " til '" + avtaleStatus.name() + "'");
         return avtaleStatus.name();
     }
 
