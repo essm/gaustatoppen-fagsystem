@@ -1,7 +1,7 @@
 package no.gaustatoppen.fagsystem.factory;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class AvtalenummerFactoryTest {
 
@@ -9,8 +9,8 @@ public class AvtalenummerFactoryTest {
 
     @Test
     public void verifyAvtalenummerFactory() {
-        Assert.assertEquals(1000001, factory.nyttAvtalenr().intValue());
-        Assert.assertEquals(1000002, factory.nyttAvtalenr().intValue());
-        Assert.assertEquals(1000003, factory.nyttAvtalenr().intValue());
+        Assertions.assertEquals(1000001, factory.nyttAvtalenr().intValue());
+        Assertions.assertEquals(1000002, factory.nyttAvtalenr().intValue());
+        Assertions.assertEquals(1000003, factory.nyttAvtalenr().intValue());
     }
 }
